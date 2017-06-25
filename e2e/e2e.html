@@ -1,0 +1,351 @@
+<!doctype html>
+<html>
+
+<head>
+<title>WeeklyPlanner</title>
+
+<link rel="stylesheet" href="../css/abc.css"> 
+
+<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+  <link href="../custom1.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css"> 
+
+
+-->
+</head>
+
+<body class="container">
+<div class="navbar navbar-inverse navbar-fixed-top">
+<img src="../SAPImage.png" alt="Mountain View" align="right" style="width:80px;height:30px display:inline-block;
+  vertical-align:top;  padding: 0px; float: right;
+  margin: 2px;">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Weekly Planner</a>
+	 
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="../retail1/retail1.html">Retail1</a></li>
+        <li ><a href="../retail2/retail2.html">Retail2</a></li>
+        <li class="active"><a href="e2e.html">E2E</a></li>
+		<li><a href="../grc/grc.html">GRC</a></li>
+		<li>
+		<form action="https://tinyurl.com/m2ooao5">
+		<button type="submit" class="btn btn-info" id="btn-pandora">PandoraBox</button>
+		</form>
+		</li>
+		
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!--
+<h1 align="center"> WeeklyPlanner</h1>
+
+<p align="center"> Some Text
+<br>Some Text
+</p>
+-->
+
+<br>
+<br>
+<br>
+
+      <a style="height:25px; max-width:25px; right: 220px; position: fixed; ">Hours</a>
+	  <a>
+	  <div  class="form-control"  style="height:25px; max-width:25px; right: 180px; position: fixed; background: linear-gradient(to top, blue 1%, white 10%);   " ></div>
+	  <div  class="form-control"  style="height:25px; max-width:25px; right: 150px; position: fixed; background: linear-gradient(to top, black 1%, white 10%); "></div>
+      </a>
+      <a style="height:25px; max-width:25px; right: 120px; position: fixed;   ">StoryPoints</a>
+    
+<br>
+
+
+<p id="message"></p>
+
+<form method="post" class="form-inline">
+<input class="but" type="button" name="date1" id="datepicker" placeholder = "" />
+
+	<div>
+		<input type="text" name="task" placeholder="Enter Task name" class="form-control">
+		
+		
+		<select class="js-example-basic-single" id='priority' name="priority">
+			<option value="high">High</option>
+			<option value="medium">Medium</option>
+			<option value="low">Low</option>
+		</select>
+		<select class="js-example-basic-single"   id='component' name="component" >
+			<option value="">Select Component</option>
+			<option value="Adhoc Testing per phase">Adhoc Testing per phase</option>
+			<option value="E2EConversion-CrossTeamCollabration">E2EConversion-CrossTeamCollabration</option>
+			<option value="E2EConversion-Test Execution Automated">E2EConversion-Test Execution Automated</option>
+			<option value="E2EConversion-Test Execution Manual">E2EConversion-Test Execution Manual</option>
+			<option value="E2EConversion_System-Comparison tests">E2EConversion_System-Comparison tests</option>
+			<option value="External KT Receiver">External KT Receiver</option>
+			<option value="Internal KT Provider">Internal KT Provider</option>
+			<option value="Internal KT Receiver">Internal KT Receiver</option>
+			<option value="Leave">Leave</option>
+			<option value="Line Activity">Line Activity</option>
+			<option value="Miscellaneous">Miscellaneous </option>
+			<option value="Retesting">Retesting</option>
+			<option value="Script execution analysis and maintenance">Script execution analysis and maintenance</option>
+			<option value="System set up if automated">System set up if automated</option>
+			<option value="System set up manual">System set up manual</option>
+			<option value="Team Support">Team Support</option>
+			<option value="Test Management">Test Management</option>
+			<option value="TICM_Conversion">TICM_Conversion</option>
+			<option value="TICM_Documentation">TICM_Documentation</option>
+			<option value="TICM_Error Analysis">TICM_Error Analysis</option>
+			<option value="TICM_Incident Creation and Follow Up">TICM_Incident Creation and Follow Up</option>
+			<option value="TICM_Installation">TICM_Installation</option>
+			<option value="TICM_Re-execution">TICM_Re-execution</option>
+			<option value="TICM_Solution Implementation">TICM_Solution Implementation</option>
+			<option value="TICM_UDI Installation S/4HANA">TICM_UDI Installation S/4HANA</option>
+			<option value="TICM_Upgrade">TICM_Upgrade</option>
+			
+			
+			
+		</select>
+		
+		<select class="js-example-basic-single"  id='epic' name="epic">
+			<option value="">Select Epic</option>
+			<option value="S4HANA OP 1610 FPS1 Cyc 5">S4HANA OP 1610 FPS1 Cyc 5</option>
+			<option value="S4HANA OP 1610 FPS1 Cyc 6">S4HANA OP 1610 FPS1 Cyc 6</option>
+			<option value="S4HANA_TICM">S4HANA_TICM</option>
+			<option value="S4HANA OP 1610 FPS2 Cyc 7">S4HANA OP 1610 FPS2 Cyc 7</option>
+			<option value="S4HANA OP 1610 FPS1 Cyc 6.5">S4HANA OP 1610 FPS1 Cyc 6.5</option>
+			<option value="S4HANA OP 1610 FPS2 Cyc 8">S4HANA OP 1610 FPS2 Cyc 8</option>
+			<option value="S4HANA OP 1709 FPS0">S4HANA OP 1709 FPS0</option>
+						
+		</select>
+		
+		<select class="js-example-basic-single"  id='Version' name="Version">
+			<option value="">Select Version</option>
+			<option value="S4HANAOP">S4HANAOP</option>
+			<option value="S4HANACE">S4HANACE</option>
+			<option value="IMS">IMS</option>
+			<option value="SOH">SOH</option>
+			<option value="OTHER">OTHER</option>
+		</select>
+	
+		<button type="button" class="btn btn-info" id="btn-add">Add Task</button>
+		<input type="button" name="story" data-toggle="popover" title="Story Point" data-placement="left" data-content="In Development" class="btn btn-info" id="btn-story" style="float: right;" />
+		
+		
+		<!--<button type="button" class="btn btn-success" id="btn-update">Update</button> -->
+	</div>
+</form>
+<hr>
+<table class="table table-bordered">
+
+	<thead>
+	
+		<tr id="result1" >
+
+		</tr>
+		
+		
+	</thead>
+	
+	<tbody id="result">
+		
+	</tbody>
+	
+</table>
+ 
+	<form method="post" action="../php/export.php?team=e2e&week=+d1+">
+          <input type="submit" name="export" class="btn btn-success" value="Export" />
+    </form>
+
+
+<script>
+
+$('[data-toggle="popover"]').popover({
+    container: 'body'
+});
+var team= 'e2e';
+var d1=0;
+// test alert
+$( document ).ready(function() {
+
+	//alert("Please select component and epic");
+	//$(".js-example-basic-multiple").select2();
+	$(".js-example-basic-single").select2();
+	
+	
+	$("#component").select2({
+		placeholder:"Select Component"
+	});
+	$("#epic").select2({
+		placeholder:"Select Epic"
+	});
+	$("#Version").select2({
+		placeholder:"Select Version"
+	});
+
+	$('#btn-story').hover(function(){ 
+		$(this).trigger('click'); 
+	});
+	$(document).on("mouseenter", "#abc", function() {
+		$(this).trigger('click'); 
+	});
+	$(document).on("mouseleave", "#abc", function() {
+		$(this).trigger('click'); 
+	});
+
+//load data from backend
+
+//var dd = document.getElementById('priority');
+
+//dd.value='medium';
+
+      $.ajax({
+		   url: "../php/load.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1 },
+		   success: function(Result){
+		        $('#result').html(Result);
+				
+		  
+		   }
+		
+		})
+		
+		
+	  $("#datepicker").datepicker({
+    showWeek: true,
+    firstDay: 1,
+    onSelect: function(dateText) {
+        
+		  d1=$.datepicker.iso8601Week(new Date(dateText));
+		 $.ajax({
+    type: "POST",
+    url: "../php/load.php",
+    data: {week:d1 ,team:team },
+   success: function(Result){
+		        $('#result').html(Result);
+		  
+		document.getElementById('datepicker').value = "CW :  "+""+d1;
+	 
+		   }
+	
+});
+		
+		
+		
+    }
+});	
+
+  
+
+});
+
+$(function(){
+ 
+	// if we use id we need $('#some-name'); or class we use $('.some-name');
+	$('#btn-add').click(function(event){
+	event.preventDefault();
+		// declare variable
+		var _name = $('input[name="task"]').val();
+	
+		var _priority = $("#priority").val();
+	    var _p;
+		if( _priority == "high")
+		  _p=3;
+		else if( _priority == "medium")
+		  _p=2;
+		else 
+		  _p=1;
+		
+		var _component = $("#component").val();
+		var _epic = $("#epic").val();
+		var _version = $("#Version").val();
+		
+		var _tr = '<tr><td>'+ _name +'</td></tr>';
+
+		$('tbody').append(_tr);
+		
+		$.ajax({
+		   url: "../php/insert.php",
+		   method: "POST",
+		   data: {task:_name, priority:_p, week:d1, team:team , epic:_epic , component:_component , version:_version},
+		   dataType: "text",
+		   success: function(strMessage){
+		        $('#message').text(strMessage)
+				//location.reload();
+				$.ajax({
+		   url: "../php/load.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1 },
+		   success: function(Result){
+		        $('#result').html(Result);
+		  
+		   }
+		
+		})
+		   }
+		
+		})
+	});
+	
+	
+	
+	
+	
+	$(document).on('click','.btn-delete', function(){
+		if(confirm("Are you sure to delete?")){
+		    var id1=this.id;
+			var id2=this.name;
+			//alert(id2);
+			$(this).closest('tr').remove();
+   					
+			$.ajax({
+		   url: "../php/delete.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1, id:id1 , id2:id2 },
+		   success: function(Result){
+		        $.ajax({
+		   url: "../php/load.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1 },
+		   success: function(Result){
+		        $('#result').html(Result);
+		  
+		   }
+		
+		})
+		  
+		   }
+		
+		})
+			
+			
+			
+		}
+	});
+	
+	
+});
+</script>
+
+
+</body>
+</html> 
