@@ -12,12 +12,13 @@
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
   <link href="../custom1.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css"> 
 
 
 -->
 </head>
-
 
 <body class="container">
 <div class="navbar navbar-inverse navbar-fixed-top">
@@ -38,8 +39,6 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="retail1.html">Retail1</a></li>
         <li ><a href="../retail2/retail2.html">Retail2</a></li>
-        <li><a href="#E2E">E2E</a></li>
-		<li><a href="#GRC">GRC</a></li>
 		
       </ul>
     </div><!--/.nav-collapse -->
@@ -75,42 +74,42 @@
 
 	<div>
 		<input type="text" name="task" placeholder="Enter Task name" class="form-control">
-		<select id='priority' name="priority">
+		
+		
+		<select class="js-example-basic-single" id='priority' name="priority">
 			<option value="high">High</option>
 			<option value="medium">Medium</option>
 			<option value="low">Low</option>
 		</select>
-		<select id='component' name="component">
+		<select class="js-example-basic-single"   id='component' name="component" >
 			<option value="">Select Component</option>
 			<option value="Test Case creation">Test Case creation</option>
 			<option value="Adhoc Testing per phase">Adhoc Testing per phase</option>
 			<option value="Automation specification creation(test configuration)">Automation specification creation(test configuration)</option>
-			<option value="Automation - eCATT/WD">Automation - eCATT/WD</option>
+			<option value="Automation – eCATT/WD">Automation - eCATT/WD</option>
 			<option value="Adhoc Testing per phase">Adhoc Testing per phase</option>
-			<option value="Automation - QTP">Automation - QTP </option>
-			<option value="Automation - START">Automation - START </option>
-			<option value="Automation - Test Script adaptation">Automation - Test Script adaptation </option>
+			<option value="Automation – QTP">Automation - QTP </option>
+			<option value="Automation – START">Automation - START </option>
+			<option value="Automation – Test Script adaptation">Automation - Test Script adaptation </option>
 			<option value="CIP Activity">CIP Activity </option>
 			<option value="Leave">Leave</option>
 			<option value="Manual Test Case Execution">Manual Test Case Execution</option>
 			<option value="Miscellaneous">Miscellaneous </option>
-			<option value="QTP automated test script execution, analysis & maintenance">QTP automated test script execution, analysis & maintenance  </option>
+			<option value="QTP automated test script execution, analysis & maintenance">  QTP automated test script execution, analysis & maintenance  </option>
 			<option value="Reliability improvement per script">Reliability improvement per script</option>
 			<option value="Test Case creation">Test Case creation</option>
 			<option value="Retesting">Retesting</option>
-			<option value="Script execution analysis and maintenance">Script execution analysis and maintenance</option>
+			<option value="execution analysis and maintenance">Script execution analysis and maintenance</option>
 			<option value="ScriptReview">ScriptReview</option>
 			<option value="System set up if automated">System set up if automated</option>
 			<option value="System set up manual">System set up manual</option>
 			<option value="Team Support">Team Support</option>
 			<option value="Test Day">Test Day</option>
 			<option value="Test Management">Test Management</option>
-			<option value="  Traning and internal KT's">  Traning and internal KT's</option>
-			
-			
+			<option value="Traning and internal KT's">Traning and internal KT's</option>	
 		</select>
 		
-		<select id='epic' name="epic">
+		<select class="js-example-basic-single"  id='epic' name="epic">
 			<option value="">Select Epic</option>
 			<option value="CARAB 2.0 SP01 Tests">CARAB 2.0 SP01 Tests</option>
 			<option value="Handovers & Ramp UP">Handovers & Ramp UP</option>
@@ -125,8 +124,20 @@
 			<option value="S4HOP FPS2 Takt Regression">S4HOP FPS2 Takt Regression</option>
 			<option value="CARAB2.0 Automation">CARAB2.0 Automation</option>
 			<option value="S4HOP 1610 FPS2 Full Scope Executions">S4HOP 1610 FPS2 Full Scope Executions</option>
-			<option value="Code Coverage">Code Coverage</option>
+			<option value="Code Coverage Calculation">Code Coverage Calculation</option>
 			<option value="S4HOP 1709 FPS0 Executions">S4HOP 1709 FPS0 Executions</option>
+			<option value="1709 Wave 2 executions">1709 Wave 2 executions</option>
+			<option value="EHP8 SP Tests">EHP8 SP Tests</option>
+			
+		</select>
+		
+		<select class="js-example-basic-single"  id='Version' name="Version">
+			<option value="">Select Version</option>
+			<option value="S4HANAOP">S4HANAOP</option>
+			<option value="S4HANACE">S4HANACE</option>
+			<option value="IMS">IMS</option>
+			<option value="SOH">SOH</option>
+			<option value="OTHER">OTHER</option>
 		</select>
 	
 		<button type="button" class="btn btn-info" id="btn-add">Add Task</button>
@@ -160,11 +171,42 @@
 
 
 <script>
-$('[data-toggle="popover"]').popover();
+
+$('[data-toggle="popover"]').popover({
+    container: 'body'
+});
 var team= 'retail1';
 var d1=0;
 // test alert
 $( document ).ready(function() {
+
+	//alert("Please select component and epic");
+	//$(".js-example-basic-multiple").select2();
+	$(".js-example-basic-single").select2();
+	
+	
+	$("#component").select2({
+		placeholder:"Select Component"
+	});
+	$("#epic").select2({
+		placeholder:"Select Epic"
+	});
+	$("#Version").select2({
+		placeholder:"Select Version"
+	});
+
+	$('#btn-story').hover(function(){ 
+		$(this).trigger('click'); 
+	});
+	$(document).on("mouseenter", "#abc", function() {
+		$(this).trigger('click'); 
+		//alert($(this).attr('data-content') );
+	});
+	$(document).on("mouseleave", "#abc", function() {
+		$(this).trigger('click'); 
+		
+	});
+
 //load data from backend
 
 //var dd = document.getElementById('priority');
@@ -178,6 +220,7 @@ $( document ).ready(function() {
 		   data: {team:team, week:d1 },
 		   success: function(Result){
 		        $('#result').html(Result);
+				
 		  
 		   }
 		
@@ -213,6 +256,7 @@ $( document ).ready(function() {
 });
 
 $(function(){
+ 
 	// if we use id we need $('#some-name'); or class we use $('.some-name');
 	$('#btn-add').click(function(event){
 	event.preventDefault();
@@ -230,6 +274,12 @@ $(function(){
 		
 		var _component = $("#component").val();
 		var _epic = $("#epic").val();
+		var _version = $("#Version").val();
+		if(_component=="" || _version=="")
+			{
+			  alert("Please Enter Component/Version");
+			  return;
+			}
 		
 		var _tr = '<tr><td>'+ _name +'</td></tr>';
 
@@ -238,7 +288,7 @@ $(function(){
 		$.ajax({
 		   url: "../php/insert.php",
 		   method: "POST",
-		   data: {task:_name, priority:_p, week:d1, team:team , epic:_epic , component:_component},
+		   data: {task:_name, priority:_p, week:d1, team:team , epic:_epic , component:_component , version:_version},
 		   dataType: "text",
 		   success: function(strMessage){
 		        $('#message').text(strMessage)
