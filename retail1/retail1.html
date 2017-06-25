@@ -1,0 +1,306 @@
+<!doctype html>
+<html>
+
+<head>
+<title>WeeklyPlanner</title>
+
+<link rel="stylesheet" href="../css/abc.css"> 
+
+<script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+  <link href="../custom1.css" rel="stylesheet">
+<!--<link rel="stylesheet" href="css/bootstrap-theme.min.css"> 
+
+
+-->
+</head>
+
+
+<body class="container">
+<div class="navbar navbar-inverse navbar-fixed-top">
+<img src="../SAPImage.png" alt="Mountain View" align="right" style="width:80px;height:30px display:inline-block;
+  vertical-align:top;  padding: 0px; float: right;
+  margin: 2px;">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Weekly Planner</a>
+	 
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="retail1.html">Retail1</a></li>
+        <li ><a href="../retail2/retail2.html">Retail2</a></li>
+        <li><a href="#E2E">E2E</a></li>
+		<li><a href="#GRC">GRC</a></li>
+		
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!--
+<h1 align="center"> WeeklyPlanner</h1>
+
+<p align="center"> Some Text
+<br>Some Text
+</p>
+-->
+
+<br>
+<br>
+<br>
+
+      <a style="height:25px; max-width:25px; right: 220px; position: fixed; ">Hours</a>
+	  <a>
+	  <div  class="form-control"  style="height:25px; max-width:25px; right: 180px; position: fixed; background: linear-gradient(to top, blue 1%, white 10%);   " ></div>
+	  <div  class="form-control"  style="height:25px; max-width:25px; right: 150px; position: fixed; background: linear-gradient(to top, black 1%, white 10%); "></div>
+      </a>
+      <a style="height:25px; max-width:25px; right: 120px; position: fixed;   ">StoryPoints</a>
+    
+<br>
+
+
+<p id="message"></p>
+
+<form method="post" class="form-inline">
+<input class="but" type="button" name="date1" id="datepicker" placeholder = "" />
+
+	<div>
+		<input type="text" name="task" placeholder="Enter Task name" class="form-control">
+		<select id='priority' name="priority">
+			<option value="high">High</option>
+			<option value="medium">Medium</option>
+			<option value="low">Low</option>
+		</select>
+		<select id='component' name="component">
+			<option value="">Select Component</option>
+			<option value="Test Case creation">Test Case creation</option>
+			<option value="Adhoc Testing per phase">Adhoc Testing per phase</option>
+			<option value="Automation specification creation(test configuration)">Automation specification creation(test configuration)</option>
+			<option value="Automation - eCATT/WD">Automation - eCATT/WD</option>
+			<option value="Adhoc Testing per phase">Adhoc Testing per phase</option>
+			<option value="Automation - QTP">Automation - QTP </option>
+			<option value="Automation - START">Automation - START </option>
+			<option value="Automation - Test Script adaptation">Automation - Test Script adaptation </option>
+			<option value="CIP Activity">CIP Activity </option>
+			<option value="Leave">Leave</option>
+			<option value="Manual Test Case Execution">Manual Test Case Execution</option>
+			<option value="Miscellaneous">Miscellaneous </option>
+			<option value="QTP automated test script execution, analysis & maintenance">QTP automated test script execution, analysis & maintenance  </option>
+			<option value="Reliability improvement per script">Reliability improvement per script</option>
+			<option value="Test Case creation">Test Case creation</option>
+			<option value="Retesting">Retesting</option>
+			<option value="Script execution analysis and maintenance">Script execution analysis and maintenance</option>
+			<option value="ScriptReview">ScriptReview</option>
+			<option value="System set up if automated">System set up if automated</option>
+			<option value="System set up manual">System set up manual</option>
+			<option value="Team Support">Team Support</option>
+			<option value="Test Day">Test Day</option>
+			<option value="Test Management">Test Management</option>
+			<option value="  Traning and internal KT's">  Traning and internal KT's</option>
+			
+			
+		</select>
+		
+		<select id='epic' name="epic">
+			<option value="">Select Epic</option>
+			<option value="CARAB 2.0 SP01 Tests">CARAB 2.0 SP01 Tests</option>
+			<option value="Handovers & Ramp UP">Handovers & Ramp UP</option>
+			<option value="TopX Automation">TopX Automation</option>
+			<option value="Browser Tests/FaaS/Others">Browser Tests/FaaS/Others</option>
+			<option value="CARAB 2.0 FP01 Tests">CARAB 2.0 FP01 Tests</option>
+			<option value="HANA N/W Qualification Executions">HANA N/W Qualification Executions</option>
+			<option value="IMS SP Executions">IMS SP Executions</option>
+			<option value="ZDO@Retail Executions">ZDO@Retail Executions</option>
+			<option value="FIORI Automation/Adaption">FIORI Automation/Adaption</option>
+			<option value="S4HOP 1709 Takt Regression">S4HOP 1709 Takt Regression</option>
+			<option value="S4HOP FPS2 Takt Regression">S4HOP FPS2 Takt Regression</option>
+			<option value="CARAB2.0 Automation">CARAB2.0 Automation</option>
+			<option value="S4HOP 1610 FPS2 Full Scope Executions">S4HOP 1610 FPS2 Full Scope Executions</option>
+			<option value="Code Coverage">Code Coverage</option>
+			<option value="S4HOP 1709 FPS0 Executions">S4HOP 1709 FPS0 Executions</option>
+		</select>
+	
+		<button type="button" class="btn btn-info" id="btn-add">Add Task</button>
+		<input type="button" name="story" data-toggle="popover" title="Story Point" data-placement="left" data-content="In Development" class="btn btn-info" id="btn-story" style="float: right;" />
+		
+		
+		<!--<button type="button" class="btn btn-success" id="btn-update">Update</button> -->
+	</div>
+</form>
+<hr>
+<table class="table table-bordered">
+
+	<thead>
+	
+		<tr id="result1" >
+
+		</tr>
+		
+		
+	</thead>
+	
+	<tbody id="result">
+		
+	</tbody>
+	
+</table>
+ 
+	<form method="post" action="../php/export.php?team=retail1&week=+d1+">
+          <input type="submit" name="export" class="btn btn-success" value="Export" />
+    </form>
+
+
+<script>
+$('[data-toggle="popover"]').popover();
+var team= 'retail1';
+var d1=0;
+// test alert
+$( document ).ready(function() {
+//load data from backend
+
+//var dd = document.getElementById('priority');
+
+//dd.value='medium';
+
+      $.ajax({
+		   url: "../php/load.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1 },
+		   success: function(Result){
+		        $('#result').html(Result);
+		  
+		   }
+		
+		})
+		
+		
+	  $("#datepicker").datepicker({
+    showWeek: true,
+    firstDay: 1,
+    onSelect: function(dateText) {
+        
+		  d1=$.datepicker.iso8601Week(new Date(dateText));
+		 $.ajax({
+    type: "POST",
+    url: "../php/load.php",
+    data: {week:d1 ,team:team },
+   success: function(Result){
+		        $('#result').html(Result);
+		  
+		document.getElementById('datepicker').value = "CW :  "+""+d1;
+	 
+		   }
+	
+});
+		
+		
+		
+    }
+});	
+
+  
+
+});
+
+$(function(){
+	// if we use id we need $('#some-name'); or class we use $('.some-name');
+	$('#btn-add').click(function(event){
+	event.preventDefault();
+		// declare variable
+		var _name = $('input[name="task"]').val();
+	
+		var _priority = $("#priority").val();
+	    var _p;
+		if( _priority == "high")
+		  _p=3;
+		else if( _priority == "medium")
+		  _p=2;
+		else 
+		  _p=1;
+		
+		var _component = $("#component").val();
+		var _epic = $("#epic").val();
+		
+		var _tr = '<tr><td>'+ _name +'</td></tr>';
+
+		$('tbody').append(_tr);
+		
+		$.ajax({
+		   url: "../php/insert.php",
+		   method: "POST",
+		   data: {task:_name, priority:_p, week:d1, team:team , epic:_epic , component:_component},
+		   dataType: "text",
+		   success: function(strMessage){
+		        $('#message').text(strMessage)
+				//location.reload();
+				$.ajax({
+		   url: "../php/load.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1 },
+		   success: function(Result){
+		        $('#result').html(Result);
+		  
+		   }
+		
+		})
+		   }
+		
+		})
+	});
+	
+	
+	
+	
+	
+	$(document).on('click','.btn-delete', function(){
+		if(confirm("Are you sure to delete?")){
+		    var id1=this.id;
+			var id2=this.name;
+			//alert(id2);
+			$(this).closest('tr').remove();
+   					
+			$.ajax({
+		   url: "../php/delete.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1, id:id1 , id2:id2 },
+		   success: function(Result){
+		        $.ajax({
+		   url: "../php/load.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1 },
+		   success: function(Result){
+		        $('#result').html(Result);
+		  
+		   }
+		
+		})
+		  
+		   }
+		
+		})
+			
+			
+			
+		}
+	});
+	
+	
+});
+</script>
+
+
+</body>
+</html> 
