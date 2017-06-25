@@ -12,6 +12,8 @@
 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link href="../custom1.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <!--<link rel="stylesheet" href="css/bootstrap-theme.min.css"> 
 
 
@@ -40,8 +42,8 @@
       <ul class="nav navbar-nav">
         <li><a href="../retail1/retail1.html">Retail1</a></li>
         <li class="active" ><a href="retail2.html">Retail2</a></li>
-        <li><a href="#E2E">E2E</a></li>
-		<li><a href="#GRC">GRC</a></li>
+        <li><a href="../e2e/e2e.html">E2E</a></li>
+		<li><a href="../grc/grc.html">GRC</a></li>
 		
       </ul>
 	  
@@ -50,29 +52,280 @@
   </div>
   
 </div>
+
+<!--
+<h1 align="center"> WeeklyPlanner</h1>
+
+<p align="center"> Some Text
+<br>Some Text
+</p>
+-->
+
 <br>
 <br>
 <br>
+
+      <a style="height:25px; max-width:25px; right: 220px; position: fixed; ">Hours</a>
+	  <a>
+	  <div  class="form-control"  style="height:25px; max-width:25px; right: 180px; position: fixed; background: linear-gradient(to top, blue 1%, white 10%);   " ></div>
+	  <div  class="form-control"  style="height:25px; max-width:25px; right: 150px; position: fixed; background: linear-gradient(to top, black 1%, white 10%); "></div>
+      </a>
+      <a style="height:25px; max-width:25px; right: 120px; position: fixed;   ">StoryPoints</a>
+    
 <br>
-<br>
-<title>Performing Maintenance</title>
- <style type="text/css">
- body { text-align: center; padding: 150px; }
- h1 { font-size: 40px; }
- body { font: 20px Helvetica, sans-serif; color: #333; }
- #article { display: block; text-align: left; width: 650px; margin: 0 auto; }
- a { color: #dc8100; text-decoration: none; }
- a:hover { color: #333; text-decoration: none; }
- </style>
- 
-</head>
-<body>
- <div id="article">
- <h1>Site is getting a little tune up and some love.</h1>
- <div>
- <p>Performing some maintenance. You can still contact at <a href="mailto:">harshpreet.singh@sap.com</a>. Will be back up soon!</p>
- <p>&mdash; I332712</p>
- </div>
- </div>
+
+
+<p id="message"></p>
+
+<form method="post" class="form-inline">
+<input class="but" type="button" name="date1" id="datepicker" placeholder = "" />
+	<div>
+		<input type="text" name="task" placeholder="Enter Task name" class="form-control">
+		<select class="js-example-basic-single" id='priority' name="priority">
+			<option value="high">High</option>
+			<option value="medium">Medium</option>
+			<option value="low">Low</option>
+		</select>
+		<select class="js-example-basic-single" id='component' name="component" >
+			<option value="">Select Component</option>
+			<option value="Adhoc testing per test phase">Adhoc Testing per test phase</option>
+			<option value="Automation specification creation(test configuration)">Automation specification creation(test configuration)</option>
+			<option value="Automation – eCATT/WD">Automation - eCATT/WD</option>
+			<option value="Adhoc testing per test phase">Adhoc testing per test phase</option>
+			<option value="Automation – QTP">Automation - QTP </option>
+			<option value="Automation – START">Automation – START </option>
+			<option value="Test Script adaptation">Automation - Test Script adaptation </option>
+			<option value="External KT Receiver">External KT Receiver</option>
+			<option value="Internal KT Provider">Internal KT Provider</option>
+			<option value="Internal KT Receiver">Internal KT Receiver</option>
+			<option value="Leave">Leave</option>
+			<option value="Line Activity">Line Activity</option>
+			<option value="Manual Test Case Execution">Manual Test Case Execution</option>
+			<option value="Miscellaneous">Miscellaneous </option>
+			<option value="QTP automated test script execution, analysis & maintenance">  QTP automated test script execution, analysis & maintenance  </option>
+			<option value="Reliability improvement per script">Reliability improvement per script</option>
+			<option value="Retesting">Retesting</option>
+			<option value="execution analysis and maintenance">Script execution analysis and maintenance</option>
+			<option value="ScriptReview">ScriptReview</option>
+			<option value="System set up if automated">System set up if automated</option>
+			<option value="System set up manual">System set up manual</option>
+			<option value="Test Case creation">Test Case creation</option>
+			<option value="Test Management ">Test Management</option>
+			<option value="Traning and internal KT's ">Traning and internal KT's </option>
+					
+		</select>
+		
+		<select class="js-example-basic-single"  id='epic' name="epic" >
+			<option value="">Select Epic</option>
+			<option value="S4HANAOP_1709">S4HANAOP_1709</option>
+			<option value="Handovers- Retail2">Handovers- Retail2</option>
+			<option value="CARAB2.0_SPS01">CARAB2.0_SPS01</option>
+			<option value="S4 1610 FP2">S4 1610 FP2</option>
+			<option value="EHP8 Regression Tests">EHP8 Regression Tests</option>
+			<option value="HANA NW IQ test">HANA NW IQ test</option>
+			<option value="Retail_Top_T-Code Automation">Retail_Top_T-Code Automation</option>
+			<option value="FMS EHP8 SP04_Sp05 P1 Automation ">FMS EHP8 SP04_Sp05 P1 Automation </option>
+			<option value="F&R Regression_Test">F&R Regression_Test</option>
+			<option value="CARAB_FPS01_Tests">CARAB_FPS01_Tests</option>
+			<option value="Code Coverage improvements">Code Coverage improvements</option>
+			<option value="EHP7 SP14 regression test- Retail2">EHP7 SP14 regression test- Retail2</option>
+			<option value="S4HOP 1610 FPS2 Full Scope Executions">S4HOP 1610 FPS2 Full Scope Executions</option>
+		</select>
+		
+		<select class="js-example-basic-single"  id='Version' name="Version">
+			<option value="">Select Version</option>
+			<option value="S4HANAOP">S4HANAOP</option>
+			<option value="S4HANACE">S4HANACE</option>
+			<option value="IMS">IMS</option>
+			<option value="SOH">SOH</option>
+			<option value="OTHER">OTHER</option>
+		</select>
+	
+		<button type="button" class="btn btn-info" id="btn-add">Add Task</button>
+		<input type="button" name="story" data-toggle="popover" title="Story Point" data-placement="left" data-content="In Development" class="btn btn-info" id="btn-story" style="float: right;" />
+		<!--<button type="button" class="btn btn-success" id="btn-update">Update</button> -->
+	</div>
+</form>
+<hr>
+<table class="table table-bordered">
+
+	<thead>
+	
+		<tr id="result1" >
+		
+		</tr>
+		
+		
+	</thead>
+	
+	<tbody id="result">
+		
+	</tbody>
+	
+</table>
+
+		<form method="post" action="../php/export.php?team=retail2">
+          <input type="submit" name="export" class="btn btn-success" value="Export" />
+        </form>
+
+<script>
+$('[data-toggle="popover"]').popover(); 
+var team= 'retail2';
+var d1=0;
+// test alert
+$( document ).ready(function() {
+	
+	//alert("Please select component and epic");
+	$(".js-example-basic-single").select2({});
+	
+	$("#component").select2({
+		placeholder:"Select Component"
+	});
+	$("#epic").select2({
+		placeholder:"Select Epic"
+	});
+	$("#Version").select2({
+		placeholder:"Select Version"
+	});
+	$('#btn-story').hover(function(){ 
+		$(this).trigger('click'); 
+	});
+	$(document).on("mouseenter", "#abc", function() {
+		$(this).trigger('click'); 
+	});
+	$(document).on("mouseleave", "#abc", function() {
+		$(this).trigger('click'); 
+	});
+	
+//load data from backend
+      $.ajax({
+		   url: "../php/load.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1 },
+		   success: function(Result){
+		        $('#result').html(Result);
+		  
+		   }
+		
+		})
+		
+		
+	  $("#datepicker").datepicker({
+    showWeek: true,
+    firstDay: 1,
+    onSelect: function(dateText) {
+        
+		  d1=$.datepicker.iso8601Week(new Date(dateText));
+		 $.ajax({
+    type: "POST",
+    url: "../php/load.php",
+    data: {week:d1 ,team:team },
+   success: function(Result){
+		        $('#result').html(Result);
+		  
+		document.getElementById('datepicker').value = "CW :  "+""+d1;
+	 
+		   }
+	
+});
+		
+		
+		
+    }
+});	
+});
+
+$(function(){
+	// if we use id we need $('#some-name'); or class we use $('.some-name');
+	$('#btn-add').click(function(event){
+	event.preventDefault();
+		// declare variable
+		var _name = $('input[name="task"]').val();
+		
+		var _priority = $("#priority").val();
+	    var _p;
+		if( _priority == "high")
+		  _p=3;
+		else if( _priority == "medium")
+		  _p=2;
+		else 
+		  _p=1;
+		  
+		var _component = $("#component").val();
+		var _epic = $("#epic").val();
+		var _version = $("#Version").val();	
+		
+		var _tr = '<tr><td>'+ _name +'</td></tr>';
+
+		$('tbody').append(_tr);
+		
+		$.ajax({
+		   url: "../php/insert.php",
+		   method: "POST",
+		   data: {task:_name, priority:_p, week:d1, team:team , epic:_epic , component:_component , version:_version},
+		   dataType: "text",
+		   success: function(strMessage){
+		        $('#message').text(strMessage)
+				//location.reload();
+				$.ajax({
+		   url: "../php/load.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1 },
+		   success: function(Result){
+		        $('#result').html(Result);
+		  
+		   }
+		
+		})
+		   }
+		
+		})
+	});
+	
+	
+	
+	
+	
+	$(document).on('click','.btn-delete', function(){
+		if(confirm("Are you sure to delete?")){
+		    var id1=this.id;
+			var id2=this.name;
+			//alert(d1);
+			$(this).closest('tr').remove();
+   					
+			$.ajax({
+		   url: "../php/delete.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1, id:id1 , id2:id2},
+		   success: function(Result){
+		        $.ajax({
+		   url: "load.php",
+		   dataType: "html",
+		    type: "POST",
+		   data: {team:team, week:d1 },
+		   success: function(Result){
+		        $('#result').html(Result);
+		  
+		   }
+		
+		})
+		  
+		   }
+		
+		})
+			
+			
+			
+		}
+	});
+	
+	
+});
+</script>
+
+
 </body>
-</html>
+</html> 
