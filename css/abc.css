@@ -4838,7 +4838,8 @@ button.close{
     font-size:12px;
     line-height:1.4;
     opacity:0;
-    filter:alpha(opacity=0)
+    filter:alpha(opacity=0);
+	max-width: 100%!important;
 }
 
 .tooltip.in{
@@ -4950,7 +4951,7 @@ button.close{
     left:0;
     z-index:1010;
     display:none;
-    max-width:276px;
+    max-width:100%;
     padding:1px;
     text-align:left;
     background-color:#fff;
@@ -4991,7 +4992,9 @@ button.close{
 }
 
 .popover-content{
-    padding:9px 14px
+    padding:9px 14px;
+	max-width:100%!important;
+	
 }
 
 .popover>.arrow,.popover>.arrow:after{
@@ -5466,4 +5469,7 @@ button.close{
         display:none!important
     }
 
+}
+.popover{
+    max-width: 100%!important /* Max Width of the popover (depending on the container!) */
 }
